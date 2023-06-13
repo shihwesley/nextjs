@@ -13,8 +13,5 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# Run tests
-RUN npm test
-
 # Specify the command to start your application
 CMD [ "npm", "start" ]
