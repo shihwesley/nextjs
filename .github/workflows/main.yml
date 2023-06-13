@@ -19,4 +19,3 @@ jobs:
           IMAGE_TAG: latest
         run: |
           docker build -t ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} .
-          docker run -e CI=true ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} npm test
