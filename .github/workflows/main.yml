@@ -1,0 +1,25 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Docker
+        uses: docker/setup-docker@v2
+
+      - name: Build Docker image
+        env:
+          IMAGE_NAME: nextjs-first-image
+          IMAGE_TAG: latest
+        run: |
+          docker build -t ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} .
+          docker run -e CI=true ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} npm test
