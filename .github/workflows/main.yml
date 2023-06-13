@@ -15,6 +15,9 @@ jobs:
 
       - name: Set up Docker
         uses: docker/setup-docker@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Docker image
         env:
