@@ -25,3 +25,16 @@ jobs:
           docker build -t $IMAGE_NAME:$IMAGE_TAG .
           docker tag $IMAGE_NAME:$IMAGE_TAG $GCR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG
           docker push $GCR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG
+        
+      - name: Deploy to Cloud Run
+        env:
+          GCR_REGISTRY: us-central1-docker.pkg.dev/cmpe257-376421/first-repository
+          IMAGE_NAME: nextjs-first-image
+          IMAGE_TAG: latest
+          SERVICE_NAME: my-nextjs
+          REGION: us-central1
+        run: |
+          gcloud run deploy $SERVICE_NAME \
+            --image $GCR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG \
+            --platform managed \
+            --region $REGION
