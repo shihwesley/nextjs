@@ -31,10 +31,13 @@ jobs:
           GCR_REGISTRY: us-central1-docker.pkg.dev/cmpe257-376421/first-repository
           IMAGE_NAME: nextjs-first-image
           IMAGE_TAG: latest
-          SERVICE_NAME: my-nextjs
+          SERVICE_NAME: my-service
           REGION: us-central1
+          PROJECT_ID: cmpe257-376421
         run: |
+          gcloud config set project $PROJECT_ID
           gcloud run deploy $SERVICE_NAME \
-            --image $GCR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG \
-            --platform managed \
-            --region $REGION
+          --image $GCR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG \
+          --platform managed \
+          --region $REGION
+
