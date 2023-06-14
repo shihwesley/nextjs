@@ -35,6 +35,7 @@ jobs:
           REGION: us-central1
           PROJECT_ID: cmpe257-376421
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+          SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
         run: |
           echo $GCP_SA_KEY > key.json
           gcloud auth activate-service-account --key-file=key.json
@@ -43,3 +44,4 @@ jobs:
             --image $GCR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG \
             --platform managed \
             --region $REGION
+            --service-account $SERVICE_ACCOUNT
