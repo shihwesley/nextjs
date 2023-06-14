@@ -35,6 +35,8 @@ jobs:
           REGION: us-central1
           PROJECT_ID: cmpe257-376421
         run: |
+          echo "$GCP_SA_KEY" > key.json
+          gcloud auth activate-service-account --key-file=key.json
           gcloud config set project $PROJECT_ID
           gcloud run deploy $SERVICE_NAME \
           --image $GCR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG \
