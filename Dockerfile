@@ -16,6 +16,9 @@ COPY . .
 # Build the Next.js application
 RUN npm run build
 
+# Set the environment variable for the port
+ENV PORT 8080
+
 # Expose the appropriate port (default is 3000 for Next.js)
 EXPOSE 8080
 
