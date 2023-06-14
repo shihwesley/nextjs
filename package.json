@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "commonjs",
   "scripts": {
-    "dev": "vite --port 8080",
+    "dev": "vite --port 3000",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "start": "vite start --port 8080"
+    "start": "vite start --port 3000"
   },
   "dependencies": {
     "next": "^13.4.5",

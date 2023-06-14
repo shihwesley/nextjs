@@ -17,10 +17,10 @@ COPY . .
 RUN npm run build
 
 # Set the environment variable for the port
-ENV PORT 8080
+ENV PORT 3000
 
 # Expose the appropriate port (default is 3000 for Next.js)
-EXPOSE 8080
+EXPOSE 3000
 
 # Start the Next.js production server
 CMD ["npm", "run", "start"]
