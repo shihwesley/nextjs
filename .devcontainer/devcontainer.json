@@ -17,7 +17,23 @@
   "customizations": {
     "codespaces": {
       "openFiles": []
-    }
+	},
+	"vscode": {
+		"extensions": [
+			"esbenp.prettier-vscode",
+			"GitHub.copilot",
+			"dsznajder.es7-react-js-snippets",
+			"ms-azuretools.vscode-docker",
+			"oouo-diogo-perdigao.docthis",
+			"github.vscode-github-actions",
+			"GitHub.copilot-chat",
+			"googlecloudtools.cloudcode",
+			"PKief.material-icon-theme",
+			"msjsdiag.vscode-react-native",
+			"bradlc.vscode-tailwindcss",
+			"redhat.vscode-yaml"
+		]
+	}
   },
   "portsAttributes": {
     "3000": {
