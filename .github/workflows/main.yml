@@ -20,7 +20,7 @@ jobs:
         env:
           IMAGE_NAME: nextjs-first-image
           IMAGE_TAG: latest
-          GCR_REGISTRY: gcr.io/cmpe257-376421
+          GCR_REGISTRY: gcr.io/cmpe257-376421/first-repository
         run: |
           docker build -t $IMAGE_NAME:$IMAGE_TAG .
           docker tag $IMAGE_NAME:$IMAGE_TAG $GCR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG
