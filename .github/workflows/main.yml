@@ -12,10 +12,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Set up Docker
+        run: |
+          gcloud auth configure-docker
 
       - name: Build Docker image
         env:
           IMAGE_NAME: nextjs-first-image
           IMAGE_TAG: latest
+          GCR_REGISTRY: gcr.io/cmpe257-376421
         run: |
-          docker build -t ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} .
+          docker build -t $IMAGE_NAME:$IMAGE_TAG .
+          docker tag $IMAGE_NAME:$IMAGE_TAG $GCR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG
+          docker push $GCR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG.
