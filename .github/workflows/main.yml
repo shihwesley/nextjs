@@ -31,9 +31,10 @@ jobs:
           GCR_REGISTRY: us-central1-docker.pkg.dev/cmpe257-376421/first-repository
           IMAGE_NAME: nextjs-first-image
           IMAGE_TAG: latest
-          SERVICE_NAME: my-service
+          SERVICE_NAME: my-nextjs
           REGION: us-central1
           PROJECT_ID: cmpe257-376421
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
         run: |
           echo "$GCP_SA_KEY" > key.json
           gcloud auth activate-service-account --key-file=key.json
@@ -42,4 +43,3 @@ jobs:
           --image $GCR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG \
           --platform managed \
           --region $REGION
-
