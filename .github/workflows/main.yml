@@ -24,4 +24,4 @@ jobs:
         run: |
           docker build -t $IMAGE_NAME:$IMAGE_TAG .
           docker tag $IMAGE_NAME:$IMAGE_TAG $GCR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG
-          docker push $GCR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG.
+          docker push $GCR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG
