@@ -44,4 +44,3 @@ jobs:
             --image $GCR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG \
             --platform managed \
             --region $REGION
-            --service-account $SERVICE_ACCOUNT
